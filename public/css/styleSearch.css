@@ -1,0 +1,107 @@
+body { 
+    font-family: Arial, sans-serif; 
+    background: #f8f8f8; margin: 0; padding: 0; 
+}
+header{
+        background-color: #0d47a1;
+        color: white;
+        padding: 15px 20px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    header .logo {
+        font-size: 1.4rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    header .logo img {
+        width: 30px;
+        height: 30px;
+    }
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+.search-container { 
+    text-align: center; 
+    margin: 40px 0; 
+}
+.search-container input { 
+    width: 60%; 
+    padding: 10px; 
+    font-size: 16px; 
+}
+.search-container button { 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    background: #007bff; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+}
+.products-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px; 
+    padding: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.product-card { 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+    padding: 15px; 
+    text-align: center; 
+}
+.product-card img { 
+    max-width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+.product-card h3 { 
+    margin: 10px 0 5px; 
+}
+.product-card p { 
+    color: #666; 
+    font-size: 14px; 
+}
+.product-card .price { 
+    color: #007bff; 
+    font-weight: bold; 
+    margin: 8px 0; 
+}
+.product-card button { 
+    background: #007bff; 
+    color: white; 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+footer {
+        background-color: #222;
+        text-align: center;
+        padding: 25px;
+        margin-top: 60px;
+        font-size: 14px;
+        color: rgb(145, 144, 144);
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }

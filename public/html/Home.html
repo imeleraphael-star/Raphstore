@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RaphStore - Home</title>
+
+        <!-- Collegamento al file CSS esterno -->
+        <link rel="stylesheet" href="../css/styleHome.css">
+        <link rel="scriptsheet" href="../JS/Auth.js">
+    </head>
+
+    <body>
+            <!-- HEADER con logo e menu -->
+         <header>
+            <div class="logo">
+                <img src="../imagini/logo.png" alt="Electro Logo" sizes="1">
+                <span>RaphStore</span>
+            </div>
+        
+            <nav>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <!--<li><a href="#">Prodotti</a></li>-->
+                <li><a href="#offers">Offerte</a></li>
+                <li><a href="carrello.html">Carrello</a></li>
+                <li><a href="contatti-assistenza.html">Contatti</a></li>
+                <li id="userNav"><a href="Login-register.html" id="loginLink">Login/Registrati</a></li>
+              </ul>
+            </nav>
+         </header>
+
+            <!-- HERO -->
+         <section class="hero">
+           <div class="hero-text">
+             <h2>Benvenuto su RaphStore!</h2>
+             <p>Scopri i migliori prodotti tecnologici a prezzi incredibili.</p>
+             <a href="prodotti.html"> <button class="btn-primary">Scopri i nostri prodotti</button></a>
+           </div>
+           <img src="../imagini/cuffie.png" alt="Cuffie" width="500">
+         </section>
+
+            <!-- PRODOTTI IN EVIDENZA -->
+         <section class="products">
+            <h3>Prodotti in evidenza</h3>
+            <div class="product-grid">
+            <div class="product">
+                <img src="../imagini/smartwatch.png" alt="Smartwatch">
+                <h4>Smartwatch</h4>
+                <p>199,00 €</p>
+                <button class="btn-primary">I nostri prodotti</button>
+            </div>
+
+            <div class="product">
+                <img src="../imagini/camera.png" alt="Camera">
+                <h4>Camera</h4>
+                <p>349,00 €</p>
+                <button class="btn-primary">I nostri prodotti</button>
+            </div>
+
+            <div class="product">
+                <img src="../imagini/controller.png" alt="Controller">
+                <h4>Controller</h4>
+                <p>59,00 €</p>
+                <button class="btn-primary">I nostri prodotti</button>
+            </div>
+
+            <div class="product">
+                <img src="../imagini/speaker.png" alt="Speaker">
+                <h4>Speaker</h4>
+                <p>89,00 €</p>
+                <button class="btn-primary">I nostri prodotti</button>
+            </div>
+         </section>
+
+            <!-- OFFERTE -->
+         <!-- OFFERTE -->
+         <section class="offers" id="offers">
+            <h3>Offerte del giorno</h3>
+            <div class="offers-grid" id="offers-container">
+               <!-- I prodotti in offerta verranno caricati qui dinamicamente -->
+            </div>
+            <button class="btn-primary" id="btnOfferte">Scopri tutte le offerte</button>
+         </section>
+
+
+            <!-- CHI SIAMO -->
+         <section class="about">
+            <h3>Chi siamo</h3>
+            <p>RaphStore è il tuo negozio online di fiducia, dove troverai una vasta selezione di prodotti elettronici di alta qualità. 
+            La nostra missione è offrire ai nostri clienti la migliore esperienza di shopping, con un servizio eccezionale e prezzi competitivi.</p>
+         </section>
+
+            <!-- FOOTER -->
+         <footer>
+            <p>
+                <a href="#">Home</a> |
+                <a href="Prodotti.html">Prodotti</a> |
+                <a href="contatti-assistenza.html">Contatti</a> |
+                <a href="Privacy e termini.html">Privacy</a>
+            </p>
+            <p>&copy; 2025 RaphStore - Tutti i diritti riservati</p>
+         </footer>
+
+         <script>
+async function caricaOfferte() {
+    try {
+        // Richiesta prodotti con sconto > 0
+        const res = await fetch("/prodotti?offerte=1"); // '1' perché il server filtra con sconto>0
+        let offerte = await res.json();
+
+        // Mostra solo i primi 4 prodotti scontati
+        offerte = offerte.slice(0, 4);
+
+        const container = document.getElementById("offers-container");
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        offerte.forEach(p => {
+            const prezzoScontato = (p.prezzo * (100 - p.sconto) / 100).toFixed(2);
+
+            const div = document.createElement("div");
+            div.className = "offer-card";
+
+            div.innerHTML = `
+                ${p.sconto > 0 ? `<div class="badge-offerta">-${p.sconto}%</div>` : ''}
+                <a href="dettagli.html?id=${p.id}">
+                    <img src="${p.img || '../imagini/default.png'}" alt="${p.nome}">
+                    <h4>${p.nome}</h4>
+                    <div class="price">
+                        ${p.sconto > 0 ? `<span class="old-price">€${p.prezzo}</span> €${prezzoScontato}` : `€${p.prezzo}`}
+                    </div>
+                </a>
+            `;
+
+            container.appendChild(div);
+        });
+
+    } catch(e) {
+        console.error("Errore caricamento offerte:", e);
+    }
+}
+
+// Chiama la funzione quando la pagina è pronta
+window.addEventListener("DOMContentLoaded", () => {
+    caricaOfferte();
+});
+
+// Bottone "Scopri le offerte" → reindirizza a pagina prodotti filtrata
+document.getElementById("btnOfferte").addEventListener("click", function() {
+    window.location.href = "./prodotti.html?offerte=1";
+});
+
+</script>
+
+<script src="/js/Auth.js" defer></script>
+
+        </body>
+</html>

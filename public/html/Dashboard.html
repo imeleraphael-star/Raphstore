@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Amministratore - RaphStore</title>
+<link rel="stylesheet" href="../css/styleDashboard.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="logo">
+    <img src="../imagini/logo.png" alt="Logo Admin">
+    <h3>Dashboard Amministratore</h3>
+  </div>
+  <a href="#" class="menu-link active" data-target="dashboard" onclick="showSection('dashboard')">Dashboard</a>
+  <a href="#" class="menu-link" data-target="utenti" onclick="showSection('utenti')">Utenti</a>
+  <a href="#" class="menu-link" data-target="prodotti" onclick="showSection('prodotti')">Prodotti</a>
+  <a href="#" class="menu-link" data-target="ordini" onclick="showSection('ordini')">Ordini</a>
+  <a href="#" class="menu-link" data-target="report" onclick="showSection('report')">Report</a>
+  <a href="#" class="menu-link" data-target="impostazioni" onclick="showSection('impostazioni')">Impostazioni</a>
+  <a href="#" id= "logoutBtn">Logout</a>
+</div>
+
+<!-- Contenuto principale -->
+<div class="main-content">
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="section">
+    <!-- Header -->
+    <div class="header">
+        <div class="welcome">
+            <h2>Benvenuto, Admin 👋</h2>
+        </div>
+        <div class="icons">
+            <img src="../imagini/cloche.png" alt="Notifiche" class="icon">
+            <img src="../imagini/utilisateur.png" alt="Profilo" class="icon">
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content_admin">
+        <!-- Cards statistiche -->
+        <div class="stats-cards">
+    <div class="card">
+        <h3>Totale Utenti</h3>
+        <p id="cardTotaleUtenti">0</p>
+    </div>
+    <div class="card">
+        <h3>Totale Ordini</h3>
+        <p id="cardTotaleOrdini">0</p>
+    </div>
+    <div class="card">
+        <h3>Totale Prodotti</h3>
+        <p id="cardTotaleProdotti">0</p>
+    </div>
+    <div class="card">
+        <h3>Recavi Totale</h3>
+        <p id="cardRecaviTotale">€0</p>
+    </div>
+</div>
+
+        <!-- Tabella ultimi ordini -->
+        <div class="table-container">
+            <div class="card" id="cardUltimiOrdini">
+              <h3>Ultimi Ordini</h3>
+              <div class="ordini-list">
+                <p>Caricamento...</p>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- GESTIONE UTENTI -->
+  <div id="utenti" class="section active">
+    <div class="top-bar">
+      <h1>Gestione Utenti</h1>
+      <button class="add-btn" id="openModalBtn">Aggiungi Utenti</button>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Cerca utente...">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Ruolo</th>
+          <th>Data Registrazione</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody id="utentiTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- GESTIONE PRODOTTI -->
+  <div id="prodotti" class="section">
+    <div class="top-bar">
+      <h1>Gestione Prodotti</h1>
+      <button class="add-btn" id="openModalBtn">Aggiungi Prodotto</button>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Cerca prodotto...">
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome prodotto</th>
+          <th>Categoria</th>
+          <th>Prezzo</th>
+          <th>Stock</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody id="prodottiTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- GESTIONE ORDINI -->
+  <div id="ordini" class="section">
+    <header>
+      <h1>Gestione Ordini</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="Cerca prodotto...">
+      </div>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Data</th>
+          <th>Totale</th>
+          <th>Stato</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody id="ordiniTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- REPORT -->
+  <div id="report" class="section">
+    <h1>Report</h1>
+    <p>In questa sezione potrai visualizzare statistiche e analisi delle vendite.</p>
+
+    <!-- Contenitore grafici -->
+    <div class="report-charts">
+        <canvas id="chartVendite"></canvas>
+        <canvas id="chartCategorie"></canvas>
+    </div>
+ </div>
+
+
+  <!-- IMPOSTAZIONI -->
+  <!-- Pannello Impostazioni-->
+ <div id="impostazioni" class="section">
+    <div class = "header">
+        <h1>Impostazioni</h1>
+    </div>
+
+    
+        <div class="stats-cards_impostazioni">
+            <div class="card_impostazioni">
+                <span class="icon">👤</span>
+                <h2>Profilo e Account</h2>
+                <p>Nome: Mario Rossi</p>
+                <p>Email: mario.rossi@email.com</p>
+                <button>Modifica</button>
+            </div>
+        
+        
+            <div class="card_impostazioni">
+                <span class="icon">🔒</span>
+                <h2>Sicurezza e Privacy</h2>
+                <p>2FA: Abilitato</p>
+                <p>Sessioni attive: 2</p>
+                <button>Gestisci</button>
+            </div>
+            <div class="card_impostazioni">
+                <span class="icon">🔔</span>
+                <h2>Notifiche</h2>
+                <p>Email: attivate</p>
+                <p>Push: disattivate</p>
+                <button>Modifica</button>
+            </div>
+            <div class="card_impostazioni">
+                <span class="icon">🎨</span>
+                <h2>Aspetto</h2>
+                <p>Tema: Scuro</p>
+                <p>Layout: Compatto</p>
+                <button>Modifica</button>
+            </div>
+            <div class="card_impostazioni">
+                <span class="icon">🌐</span>
+                <h2>Lingua e Localizzazione</h2>
+                <p>Lingua: Italiano</p>
+                <p>Fuso orario: GMT+2</p>
+                <button>Modifica</button>
+            </div>
+            <div class="card_impostazioni">
+                <span class="icon">ℹ️</span>
+                <h2>Supporto e Info</h2>
+                <button>Apri</button>
+            </div>
+        </div>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+const links = document.querySelectorAll('.menu-link');
+const sections = document.querySelectorAll('.section');
+
+links.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    links.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+
+    const target = link.getAttribute('data-target');
+    sections.forEach(section => {
+      section.classList.remove('active');
+      if(section.id === target) section.classList.add('active');
+    });
+  });
+});
+
+    function showSection(id) {
+        // nasconde tutte le sezioni
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        // mostra la sezione cliccata
+        document.getElementById(id).classList.add('active');
+    }
+
+    // Imposta la sezione iniziale (dashboard)
+    document.addEventListener("DOMContentLoaded", () => {
+        showSection('dashboard');
+    });
+
+    // Assumendo che nella tua sidebar ci sia un pulsante con id 'btn-settings'
+    const btnSettings = document.getElementById('btn-settings');
+    const settingsPanel = document.getElementById('settings-panel');
+
+    btnSettings.addEventListener('click', () => {
+        // Nasconde tutti gli altri pannelli della gestione
+        document.querySelectorAll('.panel').forEach(p => p.classList.add('hidden'));
+        // Mostra il pannello Impostazioni
+        settingsPanel.classList.remove('hidden');
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="../JS/dashboard.js" defer></script>
+
+
+</body>
+</html>

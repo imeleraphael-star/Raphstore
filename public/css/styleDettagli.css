@@ -1,0 +1,187 @@
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #0d47a1;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+}
+header .logo img {
+      width: 30px;
+      height: 30px;
+    }
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: black;
+}
+
+
+.user-menu {
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    color: black;
+    min-width: 160px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown a:hover {
+    background: #f0f0f0;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+    .cart-container {
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+.cart-icon {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+#cart-count {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+    position: absolute;
+    top: -10px;
+    right: -15px;
+}
+    
+    
+    .container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+    .product-detail {
+        display: flex;
+        gap: 40px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .product-images img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 10px;
+    }
+    .product-info {
+        flex: 1;
+    }
+    .product-info h1 {
+        margin-top: 0;
+    }
+    .price {
+        font-size: 24px;
+        color: #e67e22;
+        margin: 10px 0;
+    }
+    .quantity {
+        margin: 10px 0;
+    }
+    .quantity input {
+        width: 60px;
+        padding: 5px;
+        font-size: 16px;
+    }
+    .btn-add {
+        display: inline-block;
+        background-color: #e67e22;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .btn-add:hover {
+        background-color: #d35400;
+    }
+    .product-details {
+        margin-top: 30px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    footer {
+        background-color: #222;
+        text-align: center;
+        padding: 25px;
+        margin-top: 60px;
+        font-size: 14px;
+        color: rgb(145, 144, 144);
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }

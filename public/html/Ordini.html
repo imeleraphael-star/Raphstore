@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I miei ordini - Area personale</title>
+  <link rel="stylesheet" href="../css/styleOrdini.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+    <div class="logo">
+        <img src="../imagini/logo.png" alt="Electro Logo">
+        <span>RaphStore</span>
+    </div>
+
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="Prodotti.html">Prodotti</a>
+        <a href="contatti-assistenza.html">Contatti</a>
+    </nav>
+
+    <!-- ICONA CARRELLO -->
+    <div class="cart-container">
+        <a href="carrello.html" class="cart-icon">
+            🛒 <span id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+  
+    <!-- Contenuto principale -->
+    <main class="content">
+      <h1>I miei ordini</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Numero ordine</th>
+            <th>Data</th>
+            <th>Stato</th>
+            <th>Totale</th>
+            <th>Dettagli</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1234</td>
+            <td>20 Aprile 2024</td>
+            <td><span class="status completed">Completato</span></td>
+            <td>€99,99</td>
+            <td><button class="btn">Vedi</button></td>
+          </tr>
+          <tr>
+            <td>#1233</td>
+            <td>17 Aprile 2024</td>
+            <td><span class="status pending">In attesa</span></td>
+            <td>€49,99</td>
+            <td><button class="btn">Vedi</button></td>
+          </tr>
+          <tr>
+            <td>#1232</td>
+            <td>15 Aprile 2024</td>
+            <td><span class="status completed">Completato</span></td>
+            <td>€149,79</td>
+            <td><button class="btn">Vedi</button></td>
+          </tr>
+          <tr>
+            <td>#1231</td>
+            <td>12 Aprile 2024</td>
+            <td><span class="status cancelled">Annullato</span></td>
+            <td>€79,49</td>
+            <td><button class="btn">Vedi</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+
+<script>
+  // Carica sidebar.html nel punto desiderato
+  fetch("Sidebar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("Sidebar-container").innerHTML = data;
+      // Evidenzia la pagina attiva
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".menu a").forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+
+    function updateCartCount() {
+    let carrello = JSON.parse(localStorage.getItem("carrello"));
+
+    if (!Array.isArray(carrello)) {
+        carrello = [];
+        localStorage.setItem("carrello", JSON.stringify(carrello));
+    }
+
+    const countElement = document.getElementById("cart-count");
+    if (countElement) {
+        const totale = carrello.reduce((acc, p) => acc + p.quantita, 0);
+        countElement.textContent = totale;
+    }
+}
+
+updateCartCount();
+</script>
+
+</html>

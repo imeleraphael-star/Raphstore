@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaphStore - Carrello</title>
+    <link rel="stylesheet" href="../css/styleCarello.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../imagini/logo.png" alt="Electro Logo">
+        <span>RaphStore</span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Prodotti.html">Prodotti</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li id="userNav"><a href="Login-register.html" id="loginLink">Login/Registrati</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <h2 class="title">Il tuo Carrello</h2>
+
+    <table id="cart-table">
+        <thead>
+            <tr>
+                <th>Prodotto</th>
+                <th>Prezzo</th>
+                <th>Quantità</th>
+                <th>Totale</th>
+                <th>Rimuovi</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="mt-6 flex justify-end items-center gap-6">
+        <span class="text-lg font-bold">Totale: <span id="total-price">€0.00</span></span>
+        <button id="btnCheckout" class="bg-blue-600 text-white font-semibold px-6 py-2 rounded hover:bg-blue-700">
+            Procedi al pagamento
+        </button>
+    </div>
+</main>
+
+<footer>
+    <p>
+        <a href="Home.html">Home</a> |
+        <a href="Prodotti.html">Prodotti</a> |
+        <a href="contatti-assistenza.html">Contatti</a> |
+        <a href="Privacy e termini.html">Privacy</a>
+    </p>
+    <p>&copy; 2025 RaphStore - Tutti i diritti riservati</p>
+</footer>
+
+<script src="../JS/Auth.js" defer></script>
+<script src="../JS/carrello.js" defer></script>
+</body>
+</html>

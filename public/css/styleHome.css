@@ -1,0 +1,294 @@
+/* ===========================
+   Stile generale del sito
+=========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Scroll dolce per link interni */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary: #8b5cf6;   /* Viola principale */
+  --light-bg: #f9f9ff;  /* Sfondo chiaro */
+  --dark-text: #222;
+  --gray-text: #555;
+}
+
+body {
+  background-color: white;
+  color: var(--dark-text);
+}
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #0d47a1;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+}
+header .logo img {
+      width: 30px;
+      height: 30px;
+    }
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: black;
+}
+
+
+.user-menu {
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    color: black;
+    min-width: 160px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown a:hover {
+    background: #f0f0f0;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+
+/* ===========================
+   HERO
+=========================== */
+.hero {
+  background-color: #f3e8ff; /* Viola chiaro */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px;
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #7c3aed;
+}
+
+/* ===========================
+   PRODOTTI IN EVIDENZA
+=========================== */
+.products {
+  padding: 60px 100px;
+  background-color: var(--light-bg);
+}
+
+.products h3 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.product {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.product img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.product p {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* ===========================
+   OFFERTE
+=========================== */
+.offers {
+  background-color: #f3e8ff;
+  text-align: center;
+  padding: 60px;
+}
+
+.offers h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   CHI SIAMO
+=========================== */
+.about {
+  padding: 60px 100px;
+}
+
+.about h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 16px;
+  color: var(--gray-text);
+  line-height: 1.7;
+}
+
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.offer-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.offer-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.offer-card h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.offer-card .price {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.badge-offerta {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff3b3b;
+  color: white;
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background-color: #222;
+  text-align: center;
+  padding: 25px;
+  margin-top: 60px;
+  font-size: 14px;
+  color: var(--gray-text);
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

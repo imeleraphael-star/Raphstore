@@ -1,0 +1,207 @@
+/* style.css */
+
+/* Body e font globale */
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #f3f4f6; /* grigio chiaro simile a Tailwind bg-gray-100 */
+    color: #1f2937; /* testo scuro */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #0d47a1;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+}
+header .logo img {
+      width: 30px;
+      height: 30px;
+    }
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: black;
+}
+
+
+.user-menu {
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    color: black;
+    min-width: 160px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown a:hover {
+    background: #f0f0f0;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+
+/* Main carrello */
+main {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Tabella carrello */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+thead tr {
+    border-bottom: 2px solid #e5e7eb;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+tbody img{
+    width: 100px;
+    height: 100px;
+}
+
+.subtotal {
+    font-weight: 600;
+}
+
+.quantity input {
+    width: 3rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+}
+
+/* Pulsante rimuovi */
+.remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #ef4444; /* rosso */
+    transition: color 0.2s;
+}
+
+.remove-btn:hover {
+    color: #b91c1c;
+}
+
+/* Totale e pulsante checkout */
+#total-price {
+    font-size: 1.25rem;
+}
+
+button {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button.bg-blue {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+
+button.bg-blue:hover {
+    background-color: #1d4ed8;
+}
+
+/* Footer */
+footer {
+        background-color: #222;
+        text-align: center;
+        padding: 25px;
+        margin-top: 60px;
+        font-size: 14px;
+        color: rgb(145, 144, 144);
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+/* Immagini prodotti */
+img {
+    border-radius: 0.25rem;
+    object-fit: cover;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Prodotti | Electro</title>
+        <link rel="stylesheet" href="../css/styleProdotti.css" />
+        <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    </head>
+
+    <body>
+        <!-- Header comune -->
+        <header class="site-header">
+            <div class="logo">
+                <img src="../imagini/logo.png" alt="Electro Logo">
+                <span>RaphStore</span>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="barraRicerca" placeholder="Cerca prodotti..." />
+                <div id="suggestions" class="suggestions-box"></div>
+                <button onclick="cercaProdotto()">🔍</button>
+            </div>
+
+            <nav class="main-nav">
+                <a href="Home.html">Home</a>
+                <a href="chi-siamo.html">Chi siamo</a>
+                <a href="contatti-assistenza.html">Contatti</a>
+            </nav>
+
+            <div class="cart-container">
+                <a href="carrello.html" class="cart-icon">
+                    🛒 <span id="cart-count">0</span>
+                </a>
+            </div>
+
+            <!-- 🔐 LOGIN / UTENTE -->
+            <div id="userNav" class="user-nav">
+                <a href="Login-register.html">Login / Registrati</a>
+            </div>
+
+        </header>
+
+        <!-- Contenuto principale -->
+        <main>
+            <h1 class="page-title">Prodotti</h1>
+
+            <p id="offerteLabel" style="display:none; color:#8b5cf6; font-weight:600;">
+                Stai visualizzando solo i prodotti in offerta
+            </p>
+
+
+          <section class="products-grid" id="products-container">
+            <!-- Qui verranno caricati dinamicamente i prodotti -->
+          </section>
+
+          <div class="pagination">
+            <button id="prevPage">⬅️</button>
+            <span id="pageNumber">1</span>
+            <button id="nextPage">➡️</button>
+          </div>
+        </main>
+
+        <!-- Footer comune -->
+        <footer>
+            <p>
+                <a href="Home.html">Home</a> |
+                <a href="#">Prodotti</a> |
+                <a href="contatti-assistenza.html">Contatti</a> |
+                <a href="Privacy e termini.html">Privacy</a>
+            </p>
+            <p>&copy; 2025 RaphStore - Tutti i diritti riservati</p>
+        </footer>
+
+<script src="../JS/prodotti.js" defer></script>
+
+<script src="../JS/Auth.js" defer></script>
+
+    </body>
+</html>

@@ -1,0 +1,401 @@
+/* ===================== RESET BASE ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #222;
+}
+
+/* ===================== LAYOUT PRINCIPALE ===================== */
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* ===================== SIDEBAR ===================== */
+
+.sidebar {
+    width: 280px;
+    background: #0d47a1;
+    padding: 30px 20px;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.user-email {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #111827;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s;
+}
+
+.menu-link:hover {
+    background: #f3f4f6;
+}
+
+.menu-link.active {
+    background: #e9f0ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.logout-btn {
+    margin-top: 25px;
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* ===================== CONTENUTO ===================== */
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* ===================== CARD ===================== */
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.06);
+    max-width: 600px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+}
+
+/* ===================== FOTO PROFILO ===================== */
+
+.photo-row {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* ===================== BOTTONI ===================== */
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #1e4fd6;
+}
+
+.btn-secondary {
+    background: white;
+    color: #2563eb;
+    padding: 11px 18px;
+    border: 1px solid #2563eb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #eef4ff;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+
+
+.payment-row { display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px
+    solid #eee;
+}
+.payment-info .pm-title {
+    font-weight:600;
+}
+.payment-info .pm-sub {
+    color:#666;
+    font-size:0.9rem;
+}
+.payment-actions .btn-small { 
+    margin-left:6px; 
+    padding:6px 8px; 
+    font-size:0.9rem; 
+}
+.modal.hidden { 
+    display:none; 
+}
+
+
+/* ===================== WISHLIST ===================== */
+
+.wishlist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wishlist-item {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.wishlist-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.wishlist-item h3 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.actions {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 44px; /* spazio per il bottone */
+  box-sizing: border-box;
+}
+
+.toggle-pass {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 6px;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    width: 350px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 8px;
+}
+
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.order-info p {
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+.order-products {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.order-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 70px;
+}
+
+.order-product-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 4px;
+}
+
+.order-product-info {
+    font-size: 12px;
+}
+#orders {
+    scroll-margin-top: 100px; /* altezza header */
+}
+
+
+/* ===================== CAMPI PAESE E NOME DESTINATARIO ===================== */
+
+#paeseInput,
+#nomeDestInput {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    display: block;
+}
+
+.modal-content label[for="paeseInput"],
+.modal-content label[for="nomeDestInput"] {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+}

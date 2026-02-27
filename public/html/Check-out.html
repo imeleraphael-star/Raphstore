@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout PRO — RaphStore</title>
+<link rel="stylesheet" href="../css/styleCheckout.css">
+<style>
+/* Nascondi form all'avvio */
+#new-address-form, #new-card-form { display: none; }
+/* Styling radio button come cerchio */
+input[type="radio"] { margin-right: 10px; cursor: pointer; }
+.address-card, .card-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #ccc; padding: 5px; }
+button { cursor: pointer; margin-left: 5px; }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../imagini/logo.png" alt="Electro Logo">
+        <span>RaphStore</span>
+    </div>
+
+    <nav>
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Prodotti.html">Prodotti</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+        <li id="userNav"><a href="Login-register.html" id="loginLink">Login/Registrati</a></li>
+    </ul>
+</nav>
+
+</header>
+
+
+
+<h1>Checkout — RaphStore</h1>
+
+<div class="checkout-container">
+
+<!-- SEZIONE 1: Indirizzi -->
+<section class="checkout-section">
+  <h2>Indirizzi di consegna</h2>
+
+  <div id="address-list" aria-live="polite"></div>
+
+  <div style="margin-top:8px;">
+    <button id="btnAddAddress" class="btn-primary">Aggiungi nuovo indirizzo</button>
+  </div>
+
+  <!-- slide-down form -->
+  <div id="new-address-form" class="form-panel" aria-hidden="true" style="display:block;">
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <input id="newName" class="checkout-input" placeholder="Nome">
+      <input id="newSurname" class="checkout-input" placeholder="Cognome">
+    </div>
+    <input id="newStreet" class="checkout-input" placeholder="Via, numero civico">
+    <div style="display:flex; gap:12px;">
+      <input id="newCity" class="checkout-input" placeholder="Città">
+      <input id="newCAP" class="checkout-input" placeholder="CAP">
+    </div>
+    <div style="display:flex; gap:8px; margin-top:10px;">
+      <button id="saveAddress" class="btn-primary">Salva nuovo indirizzo</button>
+      <button id="cancelAddress" class="btn-ghost">Annulla</button>
+    </div>
+  </div>
+</section>
+
+<!-- SEZIONE 2: Metodi di pagamento -->
+<section class="checkout-section">
+  <h2>Metodi di pagamento</h2>
+
+  <div id="payment-list" aria-live="polite"></div>
+
+  <div style="margin-top:8px;">
+    <button id="btnAddCard" class="btn-primary">Aggiungi nuovo metodo</button>
+  </div>
+
+  <!-- slide-down form carta -->
+  <div id="new-card-form" class="form-panel" aria-hidden="true" style="display:block;">
+    <input id="cardName" class="checkout-input" placeholder="Nome intestatario">
+    <input id="cardNumber" class="checkout-input" placeholder="Numero carta">
+    <div style="display:flex; gap:12px;">
+      <input id="cardExpiry" class="checkout-input" type="month" placeholder="Scadenza">
+      <input id="cardCVC" class="checkout-input" placeholder="CVC">
+    </div>
+    <div style="display:flex; gap:8px; margin-top:10px;">
+      <button id="saveCard" class="btn-primary">Salva carta</button>
+      <button id="cancelCard" class="btn-ghost">Annulla</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- SEZIONE 3: Metodo di spedizione -->
+<section class="checkout-section">
+<h2>Metodo di spedizione</h2>
+<select id="shippingMethod">
+<option>Spedizione Standard - €5.00</option>
+<option>Spedizione Express - €10.00</option>
+</select>
+</section>
+
+<!-- SEZIONE 4: Riepilogo ordine -->
+<section class="checkout-section order-summary">
+<h2>Riepilogo Ordine</h2>
+<div id="order-items"></div>
+<div class="totals">
+<p><span>Subtotale</span><span id="subtotal">€0.00</span></p>
+<p><span>Spedizione</span><span id="shipping">€0.00</span></p>
+<p><strong><span>Totale</span><span id="total">€0.00</span></strong></p>
+</div>
+<button id="confirmOrder" class="confirm-btn">Conferma Ordine</button>
+</section>
+
+</div>
+
+<script src="../JS/check-out.js" defer></script>
+<script src="../JS/Auth.js" defer></script>
+<script src="../JS/gestione_card-ind.js" defer></script>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti e Assistenza</title>
+    <style>
+        /* Stile specifico per la pagina contatti */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .contact-card {
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .contact-card h1 {
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .contact-card p {
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .contact-card input,
+        .contact-card textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .contact-card textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .contact-card button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-send {
+            background-color: #3b82f6;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .btn-send:hover {
+            background-color: #2563eb;
+        }
+
+        .btn-call {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .btn-call:hover {
+            background-color: #059669;
+        }
+
+        .btn-call i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-card">
+        <h1>Contatti e Assistenza</h1>
+        <p>Compila il modulo qui sotto o contattaci direttamente per telefono.</p>
+
+        <form action="mailto:angetsombou04@gmail.com" method="post">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="messaggio" placeholder="Messaggio..." required></textarea>
+            <button type="submit" class="btn-send">Invia</button>
+        </form>
+
+        <a href="tel:+39 3770909118" class="btn-call">
+            <button class="btn-call"><i>📞</i> Chiama ora</button>
+        </a>
+    </div>
+</body>
+</html>

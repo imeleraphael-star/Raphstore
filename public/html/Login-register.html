@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaphStore - Login / Registrazione</title>
+    <link rel="stylesheet" href="../css/styleLogin.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+                <img src="../imagini/logo.png" alt="Electro Logo">
+                <span>RaphStore</span>
+        </div>
+        <div class="toggle-btns">
+            <button id="loginBtn" class="active">Login</button>
+            <button id="registerBtn">Registrazione</button>
+        </div>
+
+        <!-- Form Login -->
+        <form id="loginForm" class="active" method="post" action="login.php">
+            <input type="email" id="loginEmail" name="email" placeholder="Email" required>
+            <input type="password" id="loginPassword" name="password" placeholder="Password" required>
+            <button type="submit" class="submit-btn">Accedi</button>
+            <a href="/auth/google" class="google-btn">
+                🔵 Accedi con Google
+            </a>
+            <p class="note">Non hai un account? Clicca Registrazione.</p>
+        </form>
+
+
+        <!-- Form Registrazione -->
+        <form id="registerForm">
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="text" id="cognome" placeholder="Cognome" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" placeholder="Conferma Password" required>
+            <input type="text" id="telefono" placeholder="Telefono" required>
+            <input type="text" id="indirizzo" placeholder="Indirizzo" required>
+            <button type="submit" class="submit-btn">Registrati</button>
+            <p class="note">Hai già un account? Clicca Login.</p>
+        </form>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+
+        loginBtn.addEventListener('click', () => {
+            loginBtn.classList.add('active');
+            registerBtn.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+        });
+
+        registerBtn.addEventListener('click', () => {
+            registerBtn.classList.add('active');
+            loginBtn.classList.remove('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = {
+        nome: document.getElementById('nome').value,
+        cognome: document.getElementById('cognome').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        telefono: document.getElementById('telefono').value,
+        indirizzo: document.getElementById('indirizzo').value
+    };
+
+    try {
+        const res = await fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (!res.ok) {
+            alert(result.error);
+            return;
+        }
+
+        alert('Registrazione completata! Ora puoi fare login.');
+    } catch (err) {
+        alert('Errore di connessione al server');
+    }
+});
+
+// LOGIN
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = {
+        email: document.getElementById('loginEmail').value,
+        password: document.getElementById('loginPassword').value
+    };
+
+    try {
+        const res = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (!res.ok) {
+            alert(result.error);
+            return;
+        }
+
+        // Login riuscito → ridirige alla home
+        window.location.href = '../html/Home.html'; // o la pagina principale del negozio
+    } catch (err) {
+        alert('Errore di connessione al server');
+    }
+});
+
+</script>
+<script src="/js/Auth.js" defer></script>
+</body>
+</html>

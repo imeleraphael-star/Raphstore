@@ -1,0 +1,129 @@
+/* ====== Reset minimo ====== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #f6f8fb;
+      color: #0f2133;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height: 1.6;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ====== Header ====== */
+    .site-header {
+      background: linear-gradient(180deg,#0f3460 0%, #123c6e 100%);
+      color: #fff;
+      padding: 48px 20px;
+      text-align: center;
+    }
+    .site-header .title {
+      margin: 0;
+      font-size: 2.1rem;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+    .site-header .subnav {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .site-header .subnav a {
+      color: rgba(255,255,255,0.95);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background .18s, color .18s, transform .08s;
+    }
+    .site-header .subnav a:hover {
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-2px);
+    }
+
+    /* ====== Container ====== */
+    .wrapper {
+      max-width: 1000px;
+      margin: 36px auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ====== Card sections ====== */
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 6px 18px rgba(15,20,33,0.06);
+      margin-bottom: 28px;
+      border: 1px solid rgba(15,20,33,0.03);
+    }
+
+    h2.section-title {
+      margin: 0 0 10px 0;
+      color: #0f3460;
+      font-size: 1.4rem;
+      display: inline-block;
+      padding-left: 12px;
+      border-left: 4px solid #00aaff;
+      font-weight: 700;
+    }
+
+    p {
+      color: #243244;
+      margin: 12px 0;
+      text-align: justify;
+    }
+
+    ul {
+      margin: 8px 0 16px 20px;
+      color: #243244;
+    }
+
+    /* ====== Anchor quick links box ====== */
+    .quick-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      align-items: center;
+    }
+    .quick-links a {
+      background: #eef7ff;
+      color: #056bd9;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 6px rgba(5,107,217,0.06);
+    }
+
+    /* ====== Footer small ====== */
+    footer {
+      max-width: 1000px;
+      margin: 12px auto 40px;
+      padding: 0 20px;
+      color: #6b7a8a;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    /* ====== Back to top ====== */
+    .back-to-top {
+      display: inline-block;
+      margin-top: 14px;
+      font-weight: 700;
+      color: #0f3460;
+      text-decoration: none;
+    }
+
+    /* ====== Mobile ====== */
+    @media (max-width: 720px) {
+      .site-header { padding: 28px 16px; }
+      .site-header .title { font-size: 1.6rem; }
+      .card { padding: 20px; border-radius: 12px; }
+      .wrapper { margin-top: 18px; }
+    }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ricerca Prodotti - Electro</title>
+  <link rel="stylesheet" href="../css/styleSearch.css" />
+</head>
+<body>
+  <header>
+            <div class="logo">
+                <img src="../imagini/logo.png" alt="Electro Logo">
+                <span>RaphStore</span>
+            </div>
+            
+                
+            <nav>
+                <a href="Home.html">Home</a>
+                <a href="Prodotti.html">Prodotti</a>
+                <a href="contatti.html">Contatti</a>
+            </nav>
+        </header>
+
+  <section class="search-container">
+    <input type="text" id="searchInput" placeholder="Cerca un prodotto..." />
+    <button onclick="searchProducts()">Cerca</button>
+  </section>
+
+  <section class="products-grid" id="resultsContainer">
+    <!-- Risultati dinamici -->
+  </section>
+
+  <footer>
+        <p>
+            <a href="Home.html">Home</a> |
+            <a href="Prodotti.html">Prodotti</a> |
+            <a href="contatti-assistenza.html">Contatti</a> |
+            <a href="#">Privacy</a>
+        </p>
+        <p>&copy; 2025 RaphStore - Tutti i diritti riservati</p>
+    </footer>
+
+  <script>
+    // Esempio di prodotti (puoi sostituire con quelli reali o caricarli da un file JSON)
+    const prodotti = [
+      { nome: "Smartphone Galaxy X", descrizione: "Display 6.5'' Super AMOLED", prezzo: "499€", immagine: "img/prodotti/smartphone.jpg" },
+      { nome: "Cuffie Bluetooth Pro", descrizione: "Audio HD e cancellazione rumore", prezzo: "149€", immagine: "img/prodotti/cuffie.jpg" },
+      { nome: "Laptop UltraBook", descrizione: "Leggero, potente, autonomia 12h", prezzo: "999€", immagine: "img/prodotti/laptop.jpg" },
+      { nome: "Fotocamera Mirrorless", descrizione: "Alta risoluzione e ottiche intercambiabili", prezzo: "799€", immagine: "img/prodotti/fotocamera.jpg" }
+    ];
+
+    // Funzione per leggere il parametro dalla URL
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("q");
+    if (query) {
+      document.getElementById("searchInput").value = query;
+      mostraRisultati(query);
+    }
+
+    // Funzione per la ricerca
+    function searchProducts() {
+      const q = document.getElementById("searchInput").value;
+      if (q.trim() !== "") {
+        window.location.href = "search.html?q=" + encodeURIComponent(q);
+      }
+    }
+
+    // Funzione per mostrare i risultati
+    function mostraRisultati(query) {
+      const container = document.getElementById("resultsContainer");
+      container.innerHTML = "";
+      const risultati = prodotti.filter(p => 
+        p.nome.toLowerCase().includes(query.toLowerCase()) || 
+        p.descrizione.toLowerCase().includes(query.toLowerCase())
+      );
+
+      if (risultati.length === 0) {
+        container.innerHTML = `<p>Nessun prodotto trovato per "<strong>${query}</strong>".</p>`;
+        return;
+      }
+
+      risultati.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${p.immagine}" alt="${p.nome}">
+          <h3>${p.nome}</h3>
+          <p>${p.descrizione}</p>
+          <div class="price">${p.prezzo}</div>
+          <button onclick="location.href='dettagli.html'">Dettagli</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

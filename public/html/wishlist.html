@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist</title>
+  <link rel="stylesheet" href="../css/styleWhishlist.css">
+</head>
+<body>
+  <!-- Sidebar caricata dinamicamente -->
+  <div id="sidebar-container"></div>
+
+  <!-- Contenuto principale -->
+  <main>
+    <h1>La tua Wishlist</h1>
+    <div class="wishlist-container">
+      <div class="wishlist-item">
+        <img src="../imagini/smartwatch.png" alt="Prodotto">
+        <div class="wishlist-info">
+          <h3>Nome Prodotto</h3>
+          <p>€19.99</p>
+        </div>
+        <div class="wishlist-actions">
+          <button class="add-cart">Aggiungi al carrello</button>
+          <button class="remove">Rimuovi</button>
+        </div>
+      </div>
+
+      <div class="wishlist-item">
+        <img src="../imagini/camera.png" alt="Prodotto">
+        <div class="wishlist-info">
+          <h3>Nome Prodotto</h3>
+          <p>€29.99</p>
+        </div>
+        <div class="wishlist-actions">
+          <button class="add-cart">Aggiungi al carrello</button>
+          <button class="remove">Rimuovi</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Script per caricare la sidebar -->
+  <script>
+    fetch('sidebar.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Errore nel caricamento della sidebar');
+        return response.text();
+      })
+      .then(html => document.getElementById('sidebar-container').innerHTML = html)
+      .catch(error => console.error(error));
+  </script>
+</body>
+</html>

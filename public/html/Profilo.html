@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profilo Utente - RaphStore</title>
+<link rel="stylesheet" href="../css/styleProfile.css" />
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+        <div class="user-info">
+            <img src="../imagini/utilisateur.png" alt="Foto Profilo" class="profile-pic">
+            <h2 class="username"></h2>
+            <p class="user-email"></p>
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="menu-link active" data-target="info">
+                <span>👤</span> Informazioni personali
+            </a>
+            <a href="Ordini.html" class="menu-link" data-target="orders">
+                <span>📦</span> Cronologia ordini
+            </a>
+            <a href="#" class="menu-link" data-target="addresses">
+                <span>📍</span> Indirizzi
+            </a>
+            <a href="#" class="menu-link" data-target="payments">
+                <span>💳</span> Metodi di pagamento
+            </a>
+            <a href="wishlist.html" class="menu-link" data-target="wishlist">
+                <span>❤️</span> Wishlist
+            </a>
+            <a href="#" id="logout" class="logout-btn">
+                <span>↩</span>precedente
+            </a>
+
+        </nav>
+    </aside>
+
+    <!-- ========== CONTENUTO PRINCIPALE ========== -->
+    <main class="main-content">
+
+      <!-- ===================== INFORMAZIONI PERSONALI ===================== -->
+     <section id="info" class="section active">
+       <h1>Informazioni personali</h1>
+
+      <div class="card">
+
+        <label>Nome</label>
+        <input type="text" id="nome" placeholder="Mario" disabled>
+
+        <label>Cognome</label>
+        <input type="text" id="cognome" placeholder="Rossi" disabled>
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="mario.rossi@email.com" disabled>
+
+        <label>Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="*************" disabled>
+          <button type="button" id="togglePassword" class="toggle-pass" aria-label="Mostra password">👁️</button>
+        </div>
+
+
+
+        <button class="btn-primary" id="editBtn">Modifica</button>
+      </div>
+     </section>
+            <!-- ===================== CRONOLOGIA ORDINI ===================== -->
+      <section id="orders" class="section">
+          <h1>Cronologia ordini</h1>
+
+            <div id="ordersList" class="orders-list"></div>
+
+      </section>
+             <!-- ===================== INDIRIZZI ===================== -->
+            <section id="addresses" class="section">
+    <h1>Indirizzi di spedizione</h1>
+
+    <div class="card">
+        <p><strong></strong></p>
+        <p id="mainAddress"></p>
+
+        <!-- Lista indirizzi dinamica -->
+        <div id="indirizziLista"></div>
+
+        <!-- Pulsante fisso -->
+        <button class="btn-secondary" id="addAddressBtn">Aggiungi Indirizzo</button>
+    </div>
+
+    <!-- Modal per aggiungere/modificare indirizzo -->
+    <div id="addressModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modalTitle">Aggiungi indirizzo</h2>
+
+            <label>Via / Strada</label>
+            <input type="text" id="viaInput">
+
+            <label>Numero civico</label>
+            <input type="text" id="civicoInput">
+
+            <label>CAP</label>
+            <input type="text" id="capInput">
+
+            <label>Città</label>
+            <input type="text" id="cittaInput">
+
+            <label>Paese</label>
+            <input type="text" id="paeseInput">
+
+            <label>Nome destinatario</label>
+            <input type="text" id="nomeDestInput">
+
+            <div class="modal-actions">
+                <button id="saveAddress" class="btn-primary">Salva</button>
+                <button id="closeModal" class="btn-secondary">Annulla</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ===================== METODI DI PAGAMENTO ===================== -->
+<section id="payments" class="section">
+    <h1>Metodi di pagamento</h1>
+
+    <div class="card">
+        <p><strong>Carte salvate</strong></p>
+        <div id="payments-list">
+            <!-- Lista dinamica (stile minimal) -->
+        </div>
+
+        <button class="btn-secondary" id="addPaymentBtn">Aggiungi metodo di pagamento</button>
+    </div>
+
+    <!-- Modal per aggiungere/modificare carta -->
+    <div id="paymentModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="paymentModalTitle">Aggiungi carta</h2>
+
+            <label>Intestatario</label>
+            <input type="text" id="pmName">
+
+            <label>Numero carta</label>
+            <input type="text" id="pmNumber">
+
+            <label>Scadenza</label>
+            <input type="month" id="pmExpiry">
+
+            <label>CVC</label>
+            <input type="text" id="pmCVC">
+
+            <div class="modal-actions">
+                <button id="savePaymentBtn" class="btn-primary">Salva</button>
+                <button id="closePaymentModal" class="btn-secondary">Annulla</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+        <!-- ===================== WISHLIST ===================== -->
+        <section id="wishlist" class="section">
+            <h1>Wishlist</h1>
+
+            <div class="wishlist-container">
+
+                <div class="wishlist-item">
+                    <img src="../imagini/smartwatch.png" alt="">
+                    <div>
+                        <h3>Nome Prodotto</h3>
+                        <p>€19,99</p>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-primary">Aggiungi al carrello</button>
+                        <button class="btn-secondary">Rimuovi</button>
+                    </div>
+                </div>
+
+                <div class="wishlist-item">
+                    <img src="../imagini/camera.png" alt="">
+                    <div>
+                        <h3>Nome Prodotto</h3>
+                        <p>€29,99</p>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-primary">Aggiungi al carrello</button>
+                        <button class="btn-secondary">Rimuovi</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+</div>
+
+
+<!-- ========== SCRIPT ========== -->
+<script src="../JS/profilo.js" defer></script>
+<script src="../JS/gestione_card-ind.js" defer></script>
+
+</body>
+</html>
