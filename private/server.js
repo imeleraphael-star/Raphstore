@@ -1203,3 +1203,5 @@ app.get('/admin/statistiche', (req, res) => {
     });
   });
 });
+
+app.get('/healthz', (req, res) => res.send('OK'));
