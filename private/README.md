@@ -26,8 +26,8 @@ L’amministratore può:
 ## ⚙️ Tecnologie Utilizzate
 
 ### Frontend
-- HTML5  
-- CSS3  
+- HTML
+- CSS
 - JavaScript  
 
 ### Backend
