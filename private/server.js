@@ -11,12 +11,11 @@ const PORT = process.env.PORT || 3000;
 
 require('dotenv').config({ path: __dirname + '/.env' });
 console.log('dotenv caricato da:', __dirname + '/.env');
-console.log('GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID);
-console.log('GOOGLE_CLIENT_SECRET:', process.env.GOOGLE_CLIENT_SECRET);
+app.use(express.static(path.join(__dirname, '../public/html')));
 
 // 1️⃣ Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public/html')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 const session = require('express-session');
 
