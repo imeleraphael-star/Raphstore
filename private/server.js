@@ -7,7 +7,7 @@ const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 require('dotenv').config({ path: __dirname + '/.env' });
 console.log('dotenv caricato da:', __dirname + '/.env');
@@ -99,10 +99,14 @@ passport.use(new GoogleStrategy({
 // 2️⃣ Connessione al database
 // ==========================
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'raphstore'
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 db.connect(err => {
@@ -129,7 +133,7 @@ function requireLogin(req, res, next) {
 // 3️⃣ Rotta di test
 // ==========================
 app.get('/', (req, res) => {
-  res.send('Server attivo e collegato al database!');
+  res.sendFile(path.join(__dirname, '../public/html/Home.html'));
 });
 
 /// ==========================
@@ -1117,12 +1121,7 @@ app.delete('/wishlist/:id', requireLogin, (req, res) => {
     });
 });
 
-// ==========================
-// 7️⃣ Avvio server
-// ==========================
-app.listen(PORT, () => {
-  console.log(`Server attivo su http://localhost:${PORT}`);
-});
+
 
 
 
@@ -1205,3 +1204,11 @@ app.get('/admin/statistiche', (req, res) => {
 });
 
 app.get('/healthz', (req, res) => res.send('OK'));
+
+
+// ==========================
+// 7️⃣ Avvio server
+// ==========================
+app.listen(PORT, () => {
+  console.log(`Server attivo su http://localhost:${PORT}`);
+});
