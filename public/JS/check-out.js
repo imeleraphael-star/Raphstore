@@ -466,7 +466,7 @@ document.getElementById("confirmOrder").addEventListener("click", async () => {
         }
 
         sessionStorage.removeItem("checkout");
-        window.location.href = "profilo.html";
+        window.location.href = "/Profilo.html";
 
     } catch (err) {
         console.error("Errore creazione ordine:", err);
