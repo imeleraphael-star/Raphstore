@@ -198,7 +198,7 @@ document.getElementById('btnCheckout').addEventListener('click', async () => {
 
         // salva carrello per checkout e reindirizza
         sessionStorage.setItem('checkout', JSON.stringify(carrello));
-        window.location.href = 'check-out.html';
+        window.location.href = '/Check-out.html';
 
     } catch (e) {
         // fallback in caso di errore fetch → usa localStorage
@@ -209,7 +209,7 @@ document.getElementById('btnCheckout').addEventListener('click', async () => {
         }
 
         sessionStorage.setItem('checkout', JSON.stringify(carrelloLS));
-        window.location.href = 'check-out.html';
+        window.location.href = '/Check-out.html';
     }
 });
 
