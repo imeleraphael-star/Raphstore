@@ -11,14 +11,19 @@ const PORT = process.env.PORT || 3000;
 
 require('dotenv').config({ path: __dirname + '/.env' });
 console.log('dotenv caricato da:', __dirname + '/.env');
-app.use(express.static(path.join(__dirname, '../public/html')));
-app.get('/check-out.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/check-out.html'));
-});
+
 
 // 1️⃣ Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
+
+// redirige automatiquement vers /html/
+app.get('/:file', (req, res, next) => {
+  if (req.params.file.endsWith('.html')) {
+    return res.sendFile(path.join(__dirname, '../public/html', req.params.file));
+  }
+  next();
+});
 
 const session = require('express-session');
 
